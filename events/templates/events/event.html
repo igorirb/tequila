@@ -1,0 +1,16 @@
+{% if event %}
+    <h1>{{ event.title }}</h1>
+    <h2>{{ event.place.name }}</h2>
+    <h3>Endereço:</h3>
+    <div>{{ event.place.street }}, {{ event.place.number }}</div>
+    <div>{{ event.place.neighborhood }}</div>
+    <div>{{ event.place.city }}, {{ event.place.state }}</div>
+    <div>{{ event.place.zipcode }}</div>
+    <h3>Data:</h3>
+    <div>Início: {{ event.starts_at }}</div>
+    <div>Término: {{ event.ends_at }}</div>
+    <h3>Descrição:</h3>
+    <div>{{ event.description }}</div>
+{% else %}
+    <p>Evento inexistente.</p>
+{% endif %}

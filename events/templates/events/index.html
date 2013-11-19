@@ -1,0 +1,13 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'events/style.css' %}" />
+
+{% if events %}
+    <ul>
+    {% for e in events %}
+        <li><a href="{% url 'events:event' e.id %}{{ e.url }}">{{ e.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No events are available.</p>
+{% endif %}
