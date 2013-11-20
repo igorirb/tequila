@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript" src="{% static 'app/script.js' %}"></script>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+Insira o período a ser buscado:
+<form id="tq-dates-form" action="/events/" method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<input id="tq-dates-submit" type="button" value="Submit" />
+</form>
+
+<a href="{% url 'app:logout' %}">Logout</a>

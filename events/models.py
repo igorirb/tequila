@@ -1,6 +1,7 @@
 import datetime
 
 from django.db 						import models
+from django.forms 					import ModelForm
 from django.utils 					import timezone
 from django.contrib.auth.models 	import User
 from app.models 					import Performer, Contact
@@ -41,3 +42,12 @@ class EventPerformer(models.Model):
 class EventContact(models.Model):
 	event 					= models.ForeignKey(Event)
 	contact 				= models.ForeignKey(Contact)
+
+class EventForm(ModelForm):
+	class Meta:
+		model = Event
+		fields = ('starts_at', 'ends_at')
+		labels = {
+            'starts_at': ('Inicio'),
+            'ends_at': ('Fim'),
+        }

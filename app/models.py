@@ -1,4 +1,6 @@
 from django.db 						import models
+from django							import forms
+from django.forms					import ModelForm
 from django.utils 					import timezone
 from django.contrib.auth.models 	import User
 
@@ -54,3 +56,10 @@ class Performer(models.Model):
 	)
 	genre = models.CharField(max_length=3, choices=MUSIC_GENRE_CHOICES, default=UNKNOWN)
 
+class UserForm(ModelForm):
+	class Meta:
+		model = User
+		fields = ('username', 'password')
+        widgets = {
+            'password': forms.PasswordInput(),
+        }
